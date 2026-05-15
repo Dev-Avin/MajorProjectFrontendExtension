@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Punjabi News NLP Extractor",
+  "version": "1.0",
+  "description": "Extract Punjabi news content and send clean JSON to local NLP backend.",
+  "permissions": [
+    "<all_urls>",
+    "activeTab",
+    "tabs",
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Analyze News"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "readability.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "punjabi-news@example.com"
+    }
+  }
+}

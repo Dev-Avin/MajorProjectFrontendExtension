@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punjabi Fake News NLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-circle">
+                <span class="logo-text">P</span>
+            </div>
+            <h1>NLP Sentinel</h1>
+        </header>
+
+        <main>
+            <p class="subtitle">Extract and analyze Punjabi news articles using deep learning.</p>
+            
+            <button id="analyze-btn" class="glow-on-hover">
+                <span class="btn-text">Analyze Page</span>
+                <span class="spinner hidden"></span>
+            </button>
+
+            <div id="status-container" class="hidden">
+                <p id="status-text" class="status-message">Connecting...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div id="result-container" class="result-card hidden">
+                <h2 id="prediction-title">Prediction</h2>
+                <div class="result-score">
+                    <span id="confidence-value">--%</span>
+                    <span class="confidence-label">Confidence</span>
+                </div>
+            </div>
+            
+            <div id="error-container" class="error-card hidden">
+                <p id="error-text"></p>
+            </div>
+
+            <div id="data-container" class="data-card hidden">
+                <h3>Extracted Data</h3>
+                <div class="data-section">
+                    <h4>Metadata</h4>
+                    <div class="data-row"><span class="data-label">Site:</span> <span id="meta-site" class="data-value truncate"></span></div>
+                    <div class="data-row"><span class="data-label">Headline:</span> <span id="meta-headline" class="data-value truncate"></span></div>
+                    <div class="data-row"><span class="data-label">Author:</span> <span id="meta-author" class="data-value truncate"></span></div>
+                </div>
+                
+                <div class="data-section split">
+                    <div class="data-stat">
+                        <span id="comments-count" class="stat-num">0</span>
+                        <span class="stat-label">Comments</span>
+                    </div>
+                    <div class="data-stat">
+                        <span id="internal-links-count" class="stat-num">0</span>
+                        <span class="stat-label">Internal</span>
+                    </div>
+                    <div class="data-stat">
+                        <span id="external-links-count" class="stat-num">0</span>
+                        <span class="stat-label">External</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="techniques-container" class="techniques-card hidden">
+                <h3>Techniques Analysis</h3>
+                <div id="techniques-list" class="techniques-list">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <div id="raw-json-container" class="raw-json-card hidden">
+                <h3>Raw Payload</h3>
+                <div class="code-wrapper">
+                    <pre><code id="raw-json-text"></code></pre>
+                </div>
+            </div>
+            
+            <button id="close-btn" class="secondary-btn glow-on-hover hidden" style="margin-top: 15px;">
+                <span class="btn-text">Close Extension</span>
+            </button>
+        </main>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
